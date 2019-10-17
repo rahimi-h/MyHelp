@@ -1,0 +1,26 @@
+ public class RegisterViewModel
+    {
+        [Display(Name = "ایمیل")]
+        [EmailAddress(ErrorMessage = "ایمیل شما نامعتبر است")]
+        [Required(ErrorMessage = "وارد نمودن {0} الزامی است")]
+        public string Email { get; set; }
+
+        [Display(Name = "رمز عبور")]
+        [Required(ErrorMessage = "وارد نمودن {0} الزامی است")]
+        [DataType(DataType.Password)]
+        [StringLength(100, ErrorMessage = "باید دارای حداقل دارای {2} و حداکثر دارای {1} کاراکتر باشد ", MinimumLength = 6)]
+        public string Password { get; set; }
+
+        [DataType(DataType.Password)]
+        [Display(Name = "تکرار رمز عبور")]
+        [Compare("Password", ErrorMessage = "رمز عبور وارد شده با تکرار کلمه عبور مطابقت ندارد")]
+        public string ConfirmPassword { get; set; }
+
+        [Display(Name = "نام کاربری")]
+        [Required(ErrorMessage = "وارد نمودن {0} الزامی است")]
+        public string UserName { get; set; }
+
+        [Display(Name = "شماره موبایل")]
+        [Required(ErrorMessage = "وارد نمودن {0} الزامی است")]
+        public string PhoneNumber { get; set; }
+    }
